@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 const systemPrompt = `
@@ -14,6 +14,17 @@ Always be friendly, helpful, and guide users to explore the demos on https://dig
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+
+  // ✅ Listen for messages from parent window
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === 'bot-message') {
+        setMessages((prev) => [...prev, { role: 'assistant', content: event.data.text }]);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
