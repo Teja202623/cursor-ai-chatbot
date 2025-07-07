@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
 import metadata from '../metadata.js';
@@ -17,47 +18,56 @@ export default async function handler(req, res) {
   try {
     const { question } = req.body;
 
-    if (!question || typeof question !== 'string') {
-      return res.status(400).json({ error: 'Invalid question input' });
-    }
-
-    // Step 1: Create embedding
+    // Step 1: Get embedding
     const embeddingResponse = await openai.embeddings.create({
       model: 'text-embedding-3-small',
       input: question,
     });
-
     const [{ embedding }] = embeddingResponse.data;
 
-    // Step 2: Supabase match
-    const { data: matches, error } = await supabase.rpc('match_documents', {
+    // Step 2: Query Supabase
+    const { data: matches } = await supabase.rpc('match_documents', {
       query_embedding: embedding,
       match_threshold: 0.5,
-      match_count: 5,
+      match_count: 3,
     });
 
-    if (error) {
-      console.error('❌ Supabase error:', error.message);
-    }
-
+    // Step 3: If match, use GPT to rewrite it nicely
     if (matches && matches.length > 0) {
-      return res.status(200).json({ answer: matches[0].content });
+      const topAnswer = matches[0].content;
+
+      const rewriteResponse = await openai.chat.completions.create({
+        model: 'gpt-4',
+        messages: [
+          {
+            role: 'system',
+            content: `You are a helpful and friendly sales assistant for Digital Marketing Genius, a web design agency in Australia. Rewrite the following answer from our knowledge base so it's more conversational and persuasive for a chatbot. Keep it accurate and helpful.`
+          },
+          {
+            role: 'user',
+            content: `Rewrite this answer:\n\n${topAnswer}`
+          }
+        ]
+      });
+
+      const polished = rewriteResponse.choices[0].message.content;
+      return res.json({ answer: polished });
     }
 
-    // Step 3: Fallback to GPT-4
-    const completion = await openai.chat.completions.create({
+    // Step 4: GPT fallback using metadata
+    const gptResponse = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [
         {
           role: 'system',
-          content: `You are a helpful assistant for Digital Marketing Genius, a web design agency. Here is some metadata:\n\n${JSON.stringify(metadata)}`
+          content: `You are a helpful assistant for Digital Marketing Genius, a web design agency in Australia. Use this metadata to answer the user's question:\n\n${JSON.stringify(metadata)}`
         },
         { role: 'user', content: question }
       ]
     });
 
-    const gptAnswer = completion.choices?.[0]?.message?.content || 'No response generated.';
-    return res.status(200).json({ answer: gptAnswer });
+    const fallback = gptResponse.choices[0].message.content;
+    return res.json({ answer: fallback });
 
   } catch (err) {
     console.error('❌ API Error:', err);
