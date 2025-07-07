@@ -60,13 +60,19 @@ export default async function handler(req, res) {
       messages: [
         {
           role: 'system',
-          content: `You are a helpful assistant for Digital Marketing Genius, a web design agency in Australia. Use this metadata to answer the user's question:\n\n${JSON.stringify(metadata)}`
+          content: `You are a helpful assistant for Digital Marketing Genius, a web design agency in Australia.
+
+Use the metadata below to answer the user's question if there's a close industry match, even if not exact. For unmatched industries, creatively generalize based on similar trades or ecommerce businesses.
+
+Always be friendly, helpful, and persuasive. Mention timeline, price, features, and include a relevant demo link if possible. End with an invitation to reach out directly if needed.
+
+Here is the structured metadata:\n\n${JSON.stringify(metadata)}`
         },
         { role: 'user', content: question }
       ]
     });
 
-    const fallback = gptResponse.choices[0].message.content;
+    const fallback = fallbackResponse.choices?.[0]?.message?.content || 'Sorry, I couldn’t find an answer.';
     return res.json({ answer: fallback });
 
   } catch (err) {
