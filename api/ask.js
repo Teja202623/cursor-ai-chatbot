@@ -86,7 +86,7 @@ Always mention:
 - Timeline (7–14 days)
 - Platform (WordPress or WooCommerce)
 - Key features (quote form, trust badges, Google Maps, mobile responsive)
-
+- If no industry match exists, link to our plumber site demo as a sample layout.
 Be friendly, local, and helpful. If unsure, offer to chat more or contact DMG directly.
 
 Metadata:\n\n${JSON.stringify(metadata)}`
