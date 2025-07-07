@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "chatbot-ui",
-=======
-  "name": "cursor-ai-chatbot",
->>>>>>> cfb2acde15d9f7c9675968bc7b43efc7a2b26040
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +7,6 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-<<<<<<< HEAD
     "preview": "vite preview",
     "api": "node server.js"
   },
@@ -21,11 +16,6 @@
     "dotenv": "^17.0.1",
     "express": "^5.1.0",
     "openai": "^5.8.2",
-=======
-    "preview": "vite preview"
-  },
-  "dependencies": {
->>>>>>> cfb2acde15d9f7c9675968bc7b43efc7a2b26040
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
