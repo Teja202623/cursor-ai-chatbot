@@ -8,31 +8,40 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_SERVICE_ROLE_KEY
 );
 
-const openai = new OpenAI({ apiKey: process.env.VITE_OPENAI_API_KEY });
+const openai = new OpenAI({
+  apiKey: process.env.VITE_OPENAI_API_KEY
+});
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
+  res.setHeader('Content-Type', 'application/json');
+
   try {
     const { question } = req.body;
 
-    // Step 1: Get embedding
+    // Step 1: Create embedding
     const embeddingResponse = await openai.embeddings.create({
       model: 'text-embedding-3-small',
       input: question,
     });
+
     const [{ embedding }] = embeddingResponse.data;
 
-    // Step 2: Query Supabase
-    const { data: matches } = await supabase.rpc('match_documents', {
+    // Step 2: Query Supabase for semantic matches
+    const { data: matches, error: matchError } = await supabase.rpc('match_documents', {
       query_embedding: embedding,
       match_threshold: 0.5,
       match_count: 3,
     });
 
-    // Step 3: If match, use GPT to rewrite it nicely
+    if (matchError) {
+      console.error('❌ Supabase RPC Error:', matchError);
+    }
+
+    // Step 3: If we get a match, rewrite it using GPT
     if (matches && matches.length > 0) {
       const topAnswer = matches[0].content;
 
@@ -50,12 +59,18 @@ export default async function handler(req, res) {
         ]
       });
 
-      const polished = rewriteResponse.choices[0].message.content;
+      const polished = rewriteResponse.choices?.[0]?.message?.content || null;
+
+      if (!polished) {
+        console.error('⚠️ GPT match rewrite failed:', JSON.stringify(rewriteResponse, null, 2));
+        return res.json({ answer: "⚠️ I had trouble rewriting that. Please try again." });
+      }
+
       return res.json({ answer: polished });
     }
 
-    // Step 4: GPT fallback using metadata
-    const gptResponse = await openai.chat.completions.create({
+    // Step 4: Fallback to metadata-driven GPT reply
+    const fallbackResponse = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [
         {
@@ -72,11 +87,20 @@ Here is the structured metadata:\n\n${JSON.stringify(metadata)}`
       ]
     });
 
-    const fallback = fallbackResponse.choices?.[0]?.message?.content || 'Sorry, I couldn’t find an answer.';
+    const fallback = fallbackResponse.choices?.[0]?.message?.content;
+
+    if (!fallback) {
+      console.error('⚠️ GPT fallback failed:', JSON.stringify(fallbackResponse, null, 2));
+      return res.json({ answer: "⚠️ Assistant was unable to respond. Please try again later." });
+    }
+
     return res.json({ answer: fallback });
 
   } catch (err) {
     console.error('❌ API Error:', err);
-    return res.status(500).json({ error: 'Server error', detail: err.message });
+    return res.status(500).json({
+      error: 'Server error',
+      detail: err.message
+    });
   }
 }
