@@ -226,4 +226,11 @@ const fallbackResponse = await openai.chat.completions.create({
   }
   
   return res.json({ answer: fallback });
-  
+} catch (err) {
+    console.error('❌ API Error:', err);
+    return res.status(500).json({
+      error: 'Server error',
+      detail: err.message
+    });
+  }
+}
