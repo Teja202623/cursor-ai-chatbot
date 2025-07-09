@@ -82,16 +82,15 @@ const styles = {
   container: {
     width: '100%',
     maxWidth: 480,
-    height: '100%',
-    maxHeight: 640,
+    height: '90vh',
     display: 'flex',
     flexDirection: 'column',
     border: '1px solid #ccc',
-    borderRadius: 10,
+    borderRadius: '16px',
     backgroundColor: '#fff',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
     overflow: 'hidden',
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
   },
   header: {
     background: 'linear-gradient(90deg, #0f172a, #1e293b)',
@@ -152,28 +151,29 @@ const styles = {
   },
   inputRow: {
     display: 'flex',
-    padding: 12,
-    borderTop: '1px solid #ddd',
+    padding: '12px 16px',
+    borderTop: '1px solid #eee',
     backgroundColor: '#fff',
     flexShrink: 0,
+    gap: '8px',
   },
   input: {
     flex: 1,
     padding: '10px',
     fontSize: '1rem',
-    borderRadius: 6,
+    borderRadius: '8px',
     border: '1px solid #ccc',
     outline: 'none',
   },
   button: {
-    marginLeft: 10,
     padding: '10px 16px',
     fontSize: '1rem',
     backgroundColor: '#0A2540',
     color: '#fff',
     border: 'none',
-    borderRadius: 6,
+    borderRadius: '8px',
     cursor: 'pointer',
+    whiteSpace: 'nowrap'
   },
 };
 
