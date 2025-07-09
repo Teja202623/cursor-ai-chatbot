@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: "👋 Hi there! I'm your assistant from Digital Marketing Genius." },
+    { sender: 'bot', text: "👋 Hi there! I'm the DMG AI Assistant — here to help you build a beautiful, high-converting website for your small business. Ask me anything!" },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);

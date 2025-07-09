@@ -2,8 +2,8 @@ const metadata = [
     {
       industry: "gardener",
       demo_url: "https://werribeegardner.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Service listing",
@@ -15,8 +15,8 @@ const metadata = [
     {
       industry: "landscaper",
       demo_url: "https://werribeelandscaper.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Project portfolio",
@@ -28,8 +28,8 @@ const metadata = [
     {
       industry: "plumber",
       demo_url: "https://localplumber.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Emergency services page",
@@ -41,8 +41,8 @@ const metadata = [
     {
       industry: "cleaner",
       demo_url: "https://shinecleaners.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Service listing",
@@ -54,8 +54,8 @@ const metadata = [
     {
       industry: "cleaning service",
       demo_url: "https://cleaningsolutions.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "List of cleaning packages",
@@ -67,8 +67,8 @@ const metadata = [
     {
       industry: "domestic cleaner",
       demo_url: "https://weclean.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Contact form",
@@ -80,8 +80,8 @@ const metadata = [
     {
       industry: "gate installer",
       demo_url: "https://designergates.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Metal gate gallery",
@@ -93,8 +93,8 @@ const metadata = [
     {
       industry: "custom gates",
       demo_url: "https://customgates.digitalmarketinggenius.com.au/",
-      timeline: "5–7 days",
-      price: "$799 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WordPress"],
       features: [
         "Custom gate design gallery",
@@ -106,8 +106,8 @@ const metadata = [
     {
       industry: "health store",
       demo_url: "https://healthyhabits.digitalmarketinggenius.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "E-commerce store",
@@ -119,8 +119,8 @@ const metadata = [
     {
       industry: "baby store",
       demo_url: "https://babystore.digitalmarketinggenius.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "Product filters",
@@ -132,8 +132,8 @@ const metadata = [
     {
       industry: "sportswear",
       demo_url: "https://sports-wear-store.digitalmarketinggenius.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "Category filters",
@@ -145,8 +145,8 @@ const metadata = [
     {
       industry: "t-shirt store",
       demo_url: "https://tshirtstore.digitalmarketinggenius.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "Product configurator",
@@ -158,8 +158,8 @@ const metadata = [
     {
       industry: "brand store",
       demo_url: "https://brandstore.digitalmarketinggenius.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "Full brand showcase",
@@ -171,8 +171,8 @@ const metadata = [
     {
       industry: "custom printing",
       demo_url: "https://custom-printing.digitalmarketinggenius.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "Print order form",
@@ -184,8 +184,8 @@ const metadata = [
     {
       industry: "live insects",
       demo_url: "https://livecricketsales.com.au/",
-      timeline: "7–10 days",
-      price: "$999 AUD",
+      timeline: "7-14 days",
+      price: "$1000 - $1500 AUD",
       platforms: ["WooCommerce", "WordPress"],
       features: [
         "Live cricket product catalog",
