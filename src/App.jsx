@@ -133,9 +133,10 @@ const styles = {
     background: '#e6f7ff',
     padding: 12,
     borderRadius: 8,
+    alignSelf: 'flex-start',
     whiteSpace: 'pre-wrap',
     wordWrap: 'break-word',
-    overflowWrap: 'break-word',
+    overflowWrap: 'anywhere',
     maxWidth: '100%',
   },
   userMsg: {
