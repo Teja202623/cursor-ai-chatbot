@@ -80,17 +80,15 @@ function App() {
 
 const styles = {
   container: {
-    width: '100%',
-    maxWidth: 480,
-    height: '100%',
+    height: '100vh', // fill the full iframe view height
     display: 'flex',
     flexDirection: 'column',
-    border: '1px solid #ccc',
+    justifyContent: 'space-between',
     borderRadius: '16px',
     backgroundColor: '#fff',
     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
-    overflow: 'hidden',
     fontFamily: 'sans-serif',
+    overflow: 'hidden',
   },
   header: {
     background: 'linear-gradient(90deg, #0f172a, #1e293b)',
@@ -127,6 +125,8 @@ const styles = {
     backgroundColor: '#f9f9f9',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'flex-start',
+    minHeight: 0,
   },
   botMsg: {
     marginBottom: 10,
