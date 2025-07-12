@@ -181,6 +181,13 @@ const styles = {
     cursor: 'pointer',
     whiteSpace: 'nowrap'
   },
+  typing: {
+    display: 'flex',
+    alignItems: 'center',
+    height: 24,
+    gap: 4,
+  },
+  
 };
 
 export default App;
