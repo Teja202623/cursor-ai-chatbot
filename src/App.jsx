@@ -60,7 +60,12 @@ function App() {
             {msg.text}
           </div>
         ))}
-        {loading && <div style={styles.botMsg}>⏳ Typing...</div>}
+        {loading && (
+          <div style={{ ...styles.botMsg, ...styles.typing }}>
+            <span className="dot"></span>
+            <span className="dot"></span>
+          </div>
+        )}
         <div ref={chatEndRef} />
       </div>
 
