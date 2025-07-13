@@ -329,8 +329,8 @@ const styles = {
   botMsg: {
     alignSelf: 'flex-start',
     marginBottom: 10,
-    backgroundColor: '#000',
-    color: '#fff',
+    backgroundColor: '#f0f0f0',
+    color: '#000',
     padding: 12,
     borderRadius: 12,
     whiteSpace: 'pre-wrap',
@@ -341,8 +341,8 @@ const styles = {
   userMsg: {
     alignSelf: 'flex-end',
     marginBottom: 10,
-    backgroundColor: '#f0f0f0',
-    color: '#000',
+    backgroundColor: '#000',
+    color: '#fff',
     padding: 12,
     borderRadius: 12,
     whiteSpace: 'pre-wrap',
