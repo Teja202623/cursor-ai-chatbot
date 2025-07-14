@@ -235,8 +235,13 @@ function App() {
   };
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, loading]);
+    window.addEventListener("message", (event) => {
+      if (event.data?.type === "check-typing") {
+        const isTyping = input.trim().length > 0;
+        window.parent.postMessage({ type: "dmg-typing-status", isTyping }, "*");
+      }
+    });
+  }, [input]);
 
   return (
     <div style={styles.container}>
