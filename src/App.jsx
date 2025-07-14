@@ -236,12 +236,8 @@ function App() {
   };
 
   useEffect(() => {
-    window.addEventListener("message", (event) => {
-      if (event.data?.type === "check-typing") {
-        const isTyping = input.trim().length > 0;
-        window.parent.postMessage({ type: "dmg-typing-status", isTyping }, "*");
-      }
-    });
+    const isEngaged = input.trim().length > 0;
+    window.parent.postMessage({ type: "user-engaged", engaged: isEngaged }, "*");
   }, [input]);
 
   return (
