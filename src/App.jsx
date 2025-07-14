@@ -41,9 +41,10 @@ function App() {
     }
   };
 
+  // ✅ Track user typing state in real-time
   useEffect(() => {
-    const isEngaged = input.trim().length > 0;
-    window.parent.postMessage({ type: "user-engaged", engaged: isEngaged }, "*");
+    const engaged = input.trim().length > 0;
+    window.parent.postMessage({ type: "user-engaged", engaged }, "*");
   }, [input]);
 
   return (
