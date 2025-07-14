@@ -51,7 +51,7 @@ function App() {
     <div style={styles.container}>
       <div style={styles.header}>
         <div style={styles.headerLeft}>
-          <div style={styles.logo}>🤖</div>
+          <img src="https://digitalmarketinggenius.com.au/wp-content/uploads/2025/07/https://digitalmarketinggenius.com.au/wp-content/uploads/2025/07/digital-marketing-genius-logo-australia.png" alt="DMG Logo" style={styles.logo} />
           <div style={styles.title}>DMG AI Assistant</div>
         </div>
         <div style={styles.headerRight}>⋯</div>
@@ -115,8 +115,11 @@ const styles = {
     alignItems: 'center',
   },
   logo: {
-    fontSize: '20px',
-    marginRight: '8px',
+    height: '28px',
+    width: '28px',
+    marginRight: '10px',
+    borderRadius: '6px',
+    objectFit: 'contain',
   },
   title: {
     fontWeight: '600',
