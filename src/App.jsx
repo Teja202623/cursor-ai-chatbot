@@ -226,6 +226,7 @@ function App() {
       const data = await res.json();
       const reply = data.answer || "⚠️ No response from assistant.";
       setMessages([...newMessages, { sender: 'bot', text: reply }]);
+      window.parent.postMessage({ type: "user-message-sent" }, "*"); // ✅ notify parent page
     } catch (err) {
       console.error('❌ Error talking to backend:', err);
       setMessages([...newMessages, { sender: 'bot', text: "⚠️ Something went wrong!" }]);
