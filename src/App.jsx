@@ -48,14 +48,18 @@ function App() {
   }, [input]);
 
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <div style={styles.headerLeft}>
-          <img src="https://digitalmarketinggenius.com.au/wp-content/uploads/2025/07/https://digitalmarketinggenius.com.au/wp-content/uploads/2025/07/digital-marketing-genius-logo-australia.png" alt="DMG Logo" style={styles.logo} />
-          <div style={styles.title}>DMG AI Assistant</div>
-        </div>
-        <div style={styles.headerRight}>⋯</div>
-      </div>
+<div style={styles.container}>
+  <div style={styles.header}>
+    <div style={styles.headerLeft}>
+      <img
+        src="https://digitalmarketinggenius.com.au/wp-content/uploads/2025/07/digital-marketing-genius-logo-australia.png"
+        alt="DMG Logo"
+        style={styles.logo}
+      />
+      <div style={styles.title}>DMG AI Assistant</div>
+    </div>
+    <div style={styles.headerRight}>⋯</div>
+  </div>
 
       <div style={styles.chat}>
         {messages.map((msg, i) => (
